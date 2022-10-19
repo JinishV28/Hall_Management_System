@@ -1,0 +1,57 @@
+/* Navbar */
+.navbar{
+    background-color: #ff2f05;
+}
+.nav-link{
+    color: white;
+    font-weight: bold;
+
+}
+.navbar-nav .nav-link.active{
+    color: #FFE5D9;
+
+}
+
+.main-heading{
+    text-align: center;
+    justify-content: center;
+    margin: 40px auto;
+}
+
+/* Form */
+.home-content{
+    background-image: url("../img/textures.jpg");
+    padding: 5%;
+
+}
+.home-form{
+    max-width: 40%;
+    background-color: #ff2f05;
+    padding: 5%;
+    margin: auto;
+    border-radius: 7%;
+
+}
+.form-img{
+    width: 70%;
+    margin-left: 20%;
+}
+.form-label{
+    font-weight: bold;
+}
+.form-label,.form-text,.form-check-label{
+    color: #FFE5D9;
+}
+.form-btn{
+    background-color: #FFE5D9;
+    padding: 10px 10px;
+    width:50%;
+    border: 0;
+    border-radius: 5px;
+    color: #ff2f05;
+    font-weight: bold;
+}
+.form-btn a{
+    text-decoration: none;
+    color: #ff2f05;
+}

@@ -1,11 +1,41 @@
 .navbar{
-    background-color: #ff2f05;
+    background-color:#ff2f05;
 }
 .nav-color{
-    background-color: #ff2f05; 
-    color: #FFE5D9; 
+    background-color: #FFE5D9; 
+    color: #ff2f05; 
 }
 .nav-link{
-    color: #FFE5D9;  
+    color: #ff2f05;  
     font-weight: bold; 
 }
+.background-image {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+    background-image: url('../img/blurbg.jpg');
+    width: 100%;
+    height: 800px;
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);
+    background-position: center;
+  }
+  
+  .content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin: auto;
+    
+  }
+  .card{
+    background-color: #fff5f1;
+  }

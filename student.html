@@ -82,37 +82,20 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control mb-3" placeholder="First name" aria-label="First name">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control mb-3" placeholder="Last name" aria-label="Last name">
-          </div>
-        </div>
         <form class="row g-3">
           <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Full Name">
           </div>
           <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4">
+            <label for="contactno" class="form-label">Contact No.</label>
+            <input type="tel" class="form-control" name="contactno" placeholder="+91">
           </div>
           <div class="col-12">
-            <label for="inputAddress" class="form-label">Address</label>
+            <label for="inputAddress" class="form-label">Area</label>
             <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
           </div>
-          <div class="col-12">
-            <label for="inputState" class="form-label">Education Details</label>
-            <select id="inputState" class="form-select">
-              <option selected>*Select Course*</option>
-              <option>MTech</option>
-              <option>BTech</option>
-              <option>PhD</option>
-            </select>
-          </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <label for="inputCity" class="form-label">City</label>
             <input type="text" class="form-control" id="inputCity">
           </div>
@@ -120,18 +103,33 @@
             <label for="inputCity" class="form-label">State</label>
             <input type="text" class="form-control" id="inputCity">
           </div>
-          <div class="col-md-2">
+          <div class="col-md-4">
             <label for="inputZip" class="form-label">Pin</label>
             <input type="text" class="form-control" id="inputZip">
           </div>
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Register</button>
+          <div class="col-6">
+            <label for="inputState" class="form-label">Degree</label>
+            <select id="inputState" class="form-select">
+              <option selected>*Apply For*</option>
+              <option>MTech</option>
+              <option>BTech</option>
+              <option>PhD</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="inputState" class="form-label">Course</label>
+            <select id="inputState" class="form-select">
+              <option selected>*Select Course*</option>
+              <option>ECS</option>
+              <option>AI/DS</option>
+              <option>COMPS</option>
+            </select>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-primary">Register</button>
       </div>
     </div>
   </div>

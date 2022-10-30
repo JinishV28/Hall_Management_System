@@ -18,7 +18,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-          <a class="navbar-brand mx-4" href="index.html">
+          <a class="navbar-brand mx-4" href="index.php">
             <img src="img/logo1.svg" alt="" width="90" height="72">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,10 +27,10 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="sign-up.html">Sign Up</a>
+                <a class="nav-link" href="sign-up.php">Sign Up</a>
               </li>
               
             </ul>
@@ -61,7 +61,7 @@
                     </div> -->
                     <div class="text-center">
                         <button id="signinBtn" class="btn btn-primary form-btn mb-3">Login</button>
-                        <button class="btn btn-primary form-btn"><a href="sign-up.html">Sign Up</a></button>
+                        <button class="btn btn-primary form-btn"><a href="sign-up.php">Sign Up</a></button>
                     </div>
                     <br><br>
                     <div id="alert" class="alert"></div>
@@ -82,7 +82,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script>
       function pageRedirect() {
-        window.location.replace("student.html");
+        window.location.replace("student.php");
       }
       $(document).ready(function(){
         $("#signinBtn").on('click', function(){

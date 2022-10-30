@@ -16,7 +16,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-          <a class="navbar-brand mx-4" href="index.html">
+          <a class="navbar-brand mx-4" href="index.php">
             <img src="img/logo1.svg" alt="" width="90" height="72">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +25,10 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="sign-in.html">Sign In</a>
+                <a class="nav-link" href="sign-in.php">Sign In</a>
               </li>
               
               
@@ -79,13 +79,15 @@
         $("#signupBtn").on('click', function(){
           var alert = document.getElementById("alert");
           const form = $("#form")[0];
-          fetch("signup.php", {
-          method : "POST",
-          body: new FormData(form)
-          })
-          .then(response=>response.json())
-          .then(json =>
-          {
+          $.ajax({
+          url: 'signup.php',
+          type : "POST",
+          dataType : 'json',
+          data : $("#form").serialize(), 
+          error: function(xhr, resp, text) {
+              console.log(xhr, resp, text);
+          },
+          success: function(json){          
             console.log(json[0]);
               if(json[0] == 1){
                 alert.classList.add("alert-success");
@@ -101,7 +103,8 @@
                   alert.innerHTML = "<center><b>Email Already In Use. Try Again.<b><center>";
                 }
               }
-          });
+            }
+          })
           return false;
         });
       });

@@ -9,7 +9,7 @@
     $success = array(0,0);
     if($count==1)
     {
-        $sql = "Select * from signup_info where(password='$password')";
+        $sql = "Select * from signup_info where(email='$email' and password='$password')";
         $result = $conn->query($sql);
         $count = mysqli_num_rows($result);
         if($count==1)

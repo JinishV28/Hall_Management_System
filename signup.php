@@ -14,7 +14,7 @@
 	{
 		if($password == $confirmPassword)
 		{
-			$sql = $conn->prepare("INSERT INTO signup_info(email, username, password) VALUES(?, ?, ?);");
+			$sql = $conn->prepare("INSERT INTO signup_info(email, username, password) VALUES(?, ?, ?);"); 
 			$sql->bind_param("sss", $email, $username, $password);
 			$sql->execute();
 			$success[0] = 1;

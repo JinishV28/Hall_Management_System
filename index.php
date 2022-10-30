@@ -32,10 +32,10 @@
                 <a class="nav-link active" aria-current="page" href="#" style="color: white; font-weight: bold; ">Home</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="sign-up.html" style="color: white; font-weight: bold; ">Sign Up</a>
+                <a class="nav-link" href="sign-up.php" style="color: white; font-weight: bold; ">Sign Up</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="sign-in.html" style="color: white; font-weight: bold; ">Sign In</a>
+                <a class="nav-link" href="sign-in.php" style="color: white; font-weight: bold; ">Sign In</a>
               </li>
             </ul>
           </div>
@@ -52,8 +52,8 @@
             
             <img src="img/hostel.png" alt=""><br>
 
-            <button type="button" class="btn  btn-lg download-button m-2 " style="background-color: #ff2f05; color: white;" onclick="window.location.href='sign-up.html';"> Sign Up</button>
-            <button type="button" class="btn  btn-lg download-button m-2" style="background-color: #ff2f05; color: white;" data-bs-toggle="modal" onclick="window.location.href='index.html';">Sign In</button>
+            <button type="button" class="btn  btn-lg download-button m-2 " style="background-color: #ff2f05; color: white;" onclick="window.location.href='sign-up.php';"> Sign Up</button>
+            <button type="button" class="btn  btn-lg download-button m-2" style="background-color: #ff2f05; color: white;"  onclick="window.location.href='sign-in.php';">Sign In</button>
   
           </div>
 

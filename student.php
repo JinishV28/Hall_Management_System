@@ -8,6 +8,25 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="css/student.css">
+
+    <script>
+      function showResult(str) {
+        if (str.length==0) {
+          document.getElementById("livesearch").innerHTML="";
+          document.getElementById("livesearch").style.border="0px";
+          return;
+        }
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() {
+          if (this.readyState==4 && this.status==200) {
+            document.getElementById("livesearch").innerHTML=this.responseText;
+            document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+          }
+        }
+        xmlhttp.open("GET","livesearch.php?q="+str,true);
+        xmlhttp.send();
+      }
+    </script>
 </head>
 <body>
     <nav class="navbar">
@@ -25,9 +44,10 @@
             </div>
             <div class="offcanvas-body">
                 <form class="d-flex mb-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-success" type="submit">Search</button>
+                    <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search" size="30" onkeyup="showResult(this.value)">              
+                    <button class="btn btn-success" type="submit">Search</button>              
                   </form>
+                  <div id="livesearch"></div>
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="#">Home</a>
@@ -93,15 +113,30 @@
           </div>
           <div class="col-12">
             <label for="inputAddress" class="form-label">Area</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="area" required>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Main Street" name="area" required>
+          </div>         
+          <div class="col-md-4">
+            <label for="inputCity" class="form-label">State</label>
+            <!-- <input type="text" class="form-control" id="inputState" name="state" required> -->           
+            <select class="form-select" id="state-dropdown inputState">
+              <option value="">Select State</option>
+              <?php
+                    require_once "dbconnection.php";
+                    $result = mysqli_query($conn,"SELECT * FROM states");
+                    while($row = mysqli_fetch_array($result)) {
+                ?>                                      
+              <option value="<?php echo $row['id'];?>"><?php echo $row["name"];?></option>
+              <?php
+                 }
+               ?>
+            </select>
+            
+
           </div>
           <div class="col-md-4">
             <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity" name="city" required>
-          </div>
-          <div class="col-md-4">
-            <label for="inputCity" class="form-label">State</label>
-            <input type="text" class="form-control" id="inputCity" name="state" required>
+            <input type="text" class="form-control" id="inputCity" name="city" required> 
+            
           </div>
           <div class="col-md-4">
             <label for="inputZip" class="form-label">Pin Code</label>
@@ -138,6 +173,25 @@
 </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> 
+      <script>
+              $(document).ready(function() {
+                  $('#state-dropdown').on('change', function() {
+                      var state_id = this.value;
+                      $.ajax({
+                          url: "cities-by-state.php",
+                          type: "POST",
+                          data: {
+                              state_id: state_id
+                          },
+                          cache: false,
+                          success: function(result){
+                              $("#city-dropdown").html(result);
+                               
+                          }
+                      });
+                  });
+                }); 
+       </script>
       <script>
         $(document).ready(function(){
           $("#registrationForm").submit(function(){

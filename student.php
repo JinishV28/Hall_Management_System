@@ -118,26 +118,27 @@
           <div class="col-md-4">
             <label for="inputCity" class="form-label">State</label>
             <!-- <input type="text" class="form-control" id="inputState" name="state" required> -->           
-            <select class="form-select" name="state" id="state-dropdown inputState">
+            <select class="form-select" name="state" id="state-dropdown">
               <option value="">Select State</option>
               <?php
                     require_once "dbconnection.php";
                     $result = mysqli_query($conn,"SELECT * FROM states");
                     while($row = mysqli_fetch_array($result)) {
                 ?>                                      
-              <option value="<?php echo $row['id'];?>"><?php echo $row["name"];?></option>
+              <option value="<?php echo $row["id"];?>"><?php echo $row["name"];?></option>
               <?php
                  }
                ?>
             </select>
-            
-
           </div>
+
           <div class="col-md-4">
             <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity" name="city" required> 
-            
+            <select class="form-select" name="city" id="city-dropdown">
+              <option value="">Select State First</option>
+            </select>
           </div>
+
           <div class="col-md-4">
             <label for="inputZip" class="form-label">Pin Code</label>
             <input type="text" class="form-control" id="inputZip" name="pincode" required>
@@ -173,28 +174,24 @@
 </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> 
-      <script>
-              $(document).ready(function() {
-                  $('#state-dropdown').on('change', function() {
-                      var state_id = this.value;
-                      $.ajax({
-                          url: "cities-by-state.php",
-                          type: "POST",
-                          data: {
-                              state_id: state_id
-                          },
-                          cache: false,
-                          success: function(result){
-                              $("#city-dropdown").html(result);
-                               
-                          }
-                      });
-                  });
-                }); 
-       </script>
             
       <script>
         $(document).ready(function(){
+          $('#state-dropdown').on('change', function() {
+            var state_id = this.value;
+            $.ajax({
+                url: "cities-by-state.php",
+                type: "POST",
+                data: {
+                    state_id: state_id
+                },
+                cache: false,
+                success: function(result){
+                    $("#city-dropdown").html(result);
+                      
+                }
+            });
+          });
           $("#registrationForm").submit(function(){
             var alert = document.getElementById("alert");
             const form = $("#registrationForm")[0];

@@ -79,15 +79,13 @@
         $("#signupBtn").on('click', function(){
           var alert = document.getElementById("alert");
           const form = $("#form")[0];
-          $.ajax({
-          url: 'signup.php',
-          type : "POST",
-          dataType : 'json',
-          data : $("#form").serialize(), 
-          error: function(xhr, resp, text) {
-              console.log(xhr, resp, text);
-          },
-          success: function(json){          
+          fetch("signup.php", {
+          method : "POST",
+          body: new FormData(form)
+          })
+          .then(response=>response.json())
+          .then(json =>
+          {          
             console.log(json[0]);
               if(json[0] == 1){
                 alert.classList.add("alert-success");
@@ -103,7 +101,6 @@
                   alert.innerHTML = "<center><b>Email Already In Use. Try Again.<b><center>";
                 }
               }
-            }
           })
           return false;
         });

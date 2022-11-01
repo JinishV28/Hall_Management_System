@@ -9,10 +9,11 @@
     $success = array(0,0);
     if($count==1)
     {
-        $sql = "Select * from signup_info where(email='$email' and password='$password')";
+        $sql = "Select password from signup_info where(email='$email')";
         $result = $conn->query($sql);
-        $count = mysqli_num_rows($result);
-        if($count==1)
+        $row = mysqli_fetch_array($result);
+        $hash = $row['password'];
+        if(password_verify($password, $hash))
         {
             $success[0] = 1;
         }

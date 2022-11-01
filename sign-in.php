@@ -95,7 +95,7 @@
           .then(response=>response.json())
           .then(json =>
           {
-            console.log(json[0]);
+            console.log(json);
               if(json[0] == 1){
                 alert.classList.add("alert-success");
                 alert.innerHTML = "<center><b>Signed In successfully.<b><center>";     

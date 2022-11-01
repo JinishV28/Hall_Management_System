@@ -118,7 +118,7 @@
           <div class="col-md-4">
             <label for="inputCity" class="form-label">State</label>
             <!-- <input type="text" class="form-control" id="inputState" name="state" required> -->           
-            <select class="form-select" id="state-dropdown inputState">
+            <select class="form-select" name="state" id="state-dropdown inputState">
               <option value="">Select State</option>
               <?php
                     require_once "dbconnection.php";
@@ -162,7 +162,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">Register</button> 
           </div>
           <br>
           <div id="alert" class="alert"></div>
@@ -192,6 +192,7 @@
                   });
                 }); 
        </script>
+            
       <script>
         $(document).ready(function(){
           $("#registrationForm").submit(function(){

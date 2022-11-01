@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pages>
+  <link>
+    <title>Home</title>
+    <url>index.php</url>
+  </link>
+  <link>
+    <title>Profile</title>
+    <url>student.php</url>
+  </link>
+  <link>
+    <title>Suggestions</title>
+    <url>index.php</url>
+  </link>
+  <link>
+    <title>Complaint</title>
+    <url>index.php</url>
+  </link>
+  <link>
+    <title>Logout</title>
+    <url>index.php</url>
+  </link>
+  <link>
+    <title>Sign in</title>
+    <url>signin.php</url>
+  </link>
+</pages>

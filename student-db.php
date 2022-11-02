@@ -1,5 +1,6 @@
 <?php
     require 'dbconnection.php';
+    session_start();
 
     $name = $_POST['name'];
     $contactno = $_POST['contactno'];
@@ -16,6 +17,12 @@
 	$count = mysqli_num_rows($query);
     if($count==0)
     {
+        $_SESSION['name'] = $name;
+        $_SESSION['contact_no'] = $contactno;
+        $_SESSION['area'] = $area;
+        $_SESSION['city'] = $city;
+        $_SESSION['degree'] = $degree;
+        $_SESSION['course'] = $course;
         $sql = $conn->prepare("INSERT INTO student_db(name, contact_no, area, city, state, pincode, degree, course) VALUES(?, ?, ?, ?, ?, ?, ?, ?);"); 
         $sql->bind_param("ssssssss", $name, $contactno, $area, $city, $state, $pincode, $degree, $course);
         $sql->execute();
